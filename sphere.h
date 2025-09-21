@@ -6,7 +6,6 @@
 #define TINY_RAY_TRACER_SPHERE_H
 
 #include "hittable.h"
-#include "vec3.h"
 
 class sphere : public hittable
 {
@@ -32,6 +31,8 @@ public:
 
         rec.t = root;
         rec.p = r.at(rec.t);
+        const vec3 outward_normal = (rec.p-center)/radius;
+        rec.set_face_normal(r, outward_normal);
         rec.normal = (rec.p - center)/radius;
         return true;
     }

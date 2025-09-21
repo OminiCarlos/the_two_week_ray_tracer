@@ -8,4 +8,6 @@ add_executable(tiny_ray_tracer main.cpp
         color.h
         ray.h
         hittable.h
-        sphere.h)
+        sphere.h
+        hittable_list.h
+        rtweekend.h)

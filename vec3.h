@@ -4,9 +4,6 @@
 
 #ifndef TINY_RAY_TRACER_VEC3_H
 #define TINY_RAY_TRACER_VEC3_H
-#include <iostream>
-#include <cmath>
-
 
 class vec3
 {
