@@ -11,7 +11,7 @@ class hit_record
 public:
     point3 p;
     vec3 normal;
-    double t;
+    double t{0.0};
 };
 
 class hittable
