@@ -4,7 +4,7 @@
 
 #ifndef TINY_RAY_TRACER_HITTABLE_H
 #define TINY_RAY_TRACER_HITTABLE_H
-
+#include "rtweekend.h"
 class hit_record
 {
 public:
@@ -24,7 +24,7 @@ class hittable
 {
 public:
     virtual ~hittable()=default;
-    virtual bool hit(const ray& r, double ray_tmin, double ray_tmax, hit_record& rec) const = 0;
+    virtual bool hit(const ray& r, interval ray_t, hit_record& rec) const = 0;
 };
 
 #endif //TINY_RAY_TRACER_HITTABLE_H

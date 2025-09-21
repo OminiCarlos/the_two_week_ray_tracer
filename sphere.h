@@ -11,7 +11,7 @@ class sphere : public hittable
 {
 public:
     sphere(const point3& center, double radius): center(center), radius(std::fmax(0,radius)){}
-    bool hit(const ray& r, double ray_tmin, double ray_tmax, hit_record& rec) const override
+    bool hit(const ray& r, interval ray_t, hit_record& rec) const override
     {
         const vec3  oc = center - r.origin();
         const auto a = r.direction().length_squared();
@@ -23,10 +23,10 @@ public:
         const auto sqrtd = std::sqrt(discriminant);
 
         auto root = (h-sqrtd)/a; //closer point
-        if (root <= ray_tmin|| ray_tmax <= root) //first check the closer point
+        if (!ray_t.surrounds(root)) //first check the closer point
         {
             root = (h+sqrtd)/a; // farther point
-            if (root <= ray_tmin|| ray_tmax <= root) return false; // else check the farther point.
+            if (!ray_t.surrounds(root)) return false; // else check the farther point.
         }
 
         rec.t = root;
