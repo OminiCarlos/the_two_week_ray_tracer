@@ -11,4 +11,5 @@ add_executable(tiny_ray_tracer main.cpp
         sphere.h
         hittable_list.h
         rtweekend.h
-        interval.h)
+        interval.h
+        camera.h)
