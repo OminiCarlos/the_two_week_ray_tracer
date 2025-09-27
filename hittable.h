@@ -5,6 +5,8 @@
 #ifndef TINY_RAY_TRACER_HITTABLE_H
 #define TINY_RAY_TRACER_HITTABLE_H
 #include "rtweekend.h"
+
+class material;
 class hit_record
 {
 public:
@@ -12,6 +14,7 @@ public:
     vec3 normal;
     double t{0.0};
     bool front_face;
+    shared_ptr<material> mat;
 
     void set_face_normal(const ray& r, const vec3& outward_normal)
     {
