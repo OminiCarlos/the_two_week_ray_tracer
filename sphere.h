@@ -32,6 +32,7 @@ public:
             if (!ray_t.surrounds(root)) return false; // else check the farther point.
         }
 
+        // update hit record
         rec.t = root;
         rec.p = r.at(rec.t);
         const vec3 outward_normal = (rec.p - center) / radius;
