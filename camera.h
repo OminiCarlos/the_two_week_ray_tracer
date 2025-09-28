@@ -5,6 +5,7 @@
 #ifndef TINY_RAY_TRACER_CAMERA_H
 #define TINY_RAY_TRACER_CAMERA_H
 
+#include  <stdexcept>
 #include "hittable.h"
 # include "material.h"
 
@@ -74,6 +75,7 @@ private:
 
     color ray_color(const ray& r, int depth, const hittable& world) const {
         if (depth<0) return color(0, 0, 0);
+        // if (depth<0) throw std::runtime_error("Max depth hit.");
         hit_record rec;
 
         if (world.hit(r, interval(0.001, infinity), rec)) {
