@@ -23,7 +23,7 @@ public:
     point3 lookat   = point3(0,0,-1);  // Point camera is looking at
     vec3   vup      = vec3(0,1,0);     // Camera-relative "up" direction
     double defocus_angle = 0;
-    double focus_dict = 10;
+    double focus_dist = 10;
 
     void render(const hittable& world) {
         initialize();
@@ -67,7 +67,7 @@ private:
         // Determine viewport dimensions.
         auto theta = degrees_to_radians(vfov);
         auto h = std::tan(theta/2);
-        auto viewport_height = 2* h * focus_dict;
+        auto viewport_height = 2* h * focus_dist;
         auto viewport_width = viewport_height * (double(image_width) / image_height);
 
         w = unit_vector(lookfrom - lookat);
@@ -84,9 +84,9 @@ private:
 
         // Calculate the location of the upper left pixel.
         auto viewport_upper_left =
-            center - focus_dict*w - viewport_u / 2 - viewport_v / 2;
+            center - focus_dist*w - viewport_u / 2 - viewport_v / 2;
         pixel00_loc = viewport_upper_left + 0.5 * (pixel_delta_u + pixel_delta_v);
-        auto defocus_radius = focus_dict * std::tan(degrees_to_radians(defocus_angle/2));
+        auto defocus_radius = focus_dist * std::tan(degrees_to_radians(defocus_angle/2));
         defocus_disk_u = u * defocus_radius;
         defocus_disk_v = v * defocus_radius;
     }
