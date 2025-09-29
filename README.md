@@ -23,7 +23,8 @@ This renderer traces rays of light through scenes, simulating realistic material
 
 - **Metal**: Reflective surfaces with configurable fuzziness
 
-  <img width="400" height="225" alt="image" src="https://github.com/user-attachments/assets/b562e332-096b-42d2-8049-1a8fc56ca115" />
+  <img width="400" height="225" alt="image" src="https://github.com/user-attachments/assets/beaf90cd-aecc-4b68-bbd9-5a7bb5bb6d9e" />
+
 
 - **Dielectrics**: Glass-like materials with refraction (Snell's Law). Forces reflection based on physical based reflection probability prescirbled by Schlick's approximation. 
 
